@@ -9,7 +9,7 @@ from uuid import UUID
 job = APIRouter()
 
 @job.get("/", response_description = "Get all jobs", response_model = List[Job], status_code = status.HTTP_200_OK)
-async def get_all_jobs(request : Request,limit : int = 10, skip : int = 0, orderby : str = "created_at", current_user = Depends(get_current_user)):
+async def get_all_jobs(request : Request,limit : int = 10, skip : int = 0, orderby : str = "created_at"):
     cursor = request.app.db.job.find({"$query":{}, "$orderby":{orderby:-1}}).skip(skip).limit(limit)
     jobs = [doc async for doc in cursor]
 
