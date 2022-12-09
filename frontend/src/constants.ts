@@ -1,4 +1,4 @@
-export const API_V1 : String = "http://127.0.0.1:8000/api/v1"
+export const API_V1 : String = "https://unveil-production.up.railway.app/api/v1"
 
 export const JOB_CREATED_STATUS : Number = 0
 export const JOB_OPEN_STATUS : Number = 1
